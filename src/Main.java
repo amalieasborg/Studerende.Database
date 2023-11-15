@@ -27,9 +27,13 @@ public class Main {
                 Studerende s= new Studerende(13,"Mikkel","Jensen","Holbækvej 13","2200","11223355",'a');
                 db.opretStuderende(s);
             break;
+            case 2:
+                Fag f1= new Fag(2,"Java");
+                db.opretFag(f1);
+            break;
             case 5:
                 db.alleStuderende();
-
+            break;
         }
 
 

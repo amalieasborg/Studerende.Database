@@ -32,9 +32,20 @@ public class DbSql {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
     }
+    public void opretFag(Fag f){
+        try {
+            String sql = "insert into Fag (fagNr,fagNavn)";
+            sql+="values ("+String.valueOf(f.getFagnr())+",'"+f.getFagnavn()+"')";
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+            System.out.println("Connection to SQLite has been established.");
 
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 
 
     public void alleStuderende(){
