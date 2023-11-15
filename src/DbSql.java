@@ -50,7 +50,7 @@ public class DbSql {
                 System.out.println(rs.getString("adresse"));
                 System.out.println(rs.getString("postnr"));
                 System.out.println(rs.getString("mobil"));
-                System.out.println(rs.getString("klasse")); hej
+                System.out.println(rs.getString("klasse"));
             }
             stmt.close();
         } catch (SQLException throwables) {
