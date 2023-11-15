@@ -46,7 +46,37 @@ public class DbSql {
             throwables.printStackTrace();
         }
     }
+    public void tilmeldStuderendeTilFag(int stdnr, int fagNr,int kar){
+        try {
+            String sql = "insert into Studfag(stdnr,fagNr,kar)values(";
+            sql+=String.valueOf(stdnr)+","+String.valueOf(fagNr)+","+String.valueOf(kar)+")";
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+            System.out.println("Connection to SQLite has been established.");
 
+            stmt.close();
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    /*public void frameldStuderendeFraFag(){
+        try {
+            String sql = "insert into Studfag(stdnr,fagNr,kar)values(";
+            sql+=String.valueOf(stdnr)+","+String.valueOf(fagNr)+","+String.valueOf(kar)+")";
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+            System.out.println("Connection to SQLite has been established.");
+
+            stmt.close();
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+
+    }*/
 
     public void alleStuderende(){
         try {
@@ -69,7 +99,21 @@ public class DbSql {
         }
 
     }
-
+    public void alleFag(){
+        try {
+            String sql = "select * from Fag";
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql);
+            System.out.println("Connection to SQLite has been established.");
+            while (rs.next()) {
+                System.out.println(rs.getInt("fagNr"));
+                System.out.println(rs.getString("fagNavn"));
+            }
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 
 
 }

@@ -31,8 +31,22 @@ public class Main {
                 Fag f1= new Fag(2,"Java");
                 db.opretFag(f1);
             break;
+            case 3:
+                db.tilmeldStuderendeTilFag(1,1,10);
+            break;
+            case 4:
+
+            break;
             case 5:
                 db.alleStuderende();
+            break;
+            case 6:
+                db.alleFag();
+            break;
+            case 7:
+            break;
+            case 8:
+
             break;
         }
 
