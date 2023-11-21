@@ -8,7 +8,6 @@ public class Studerende {
     private String postnr;
     private String mobil;
     private char klasse;
-
     private ArrayList<Fag> fagListe=new ArrayList<Fag>();
 
     public Studerende() {

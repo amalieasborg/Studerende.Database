@@ -7,7 +7,6 @@ public class Laerer {
     private String adresse;
     private String postnr;
     private String mobil;
-
     private ArrayList<Fag> fagListe=new ArrayList<Fag>();
 
     public Laerer() {

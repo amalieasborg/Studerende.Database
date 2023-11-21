@@ -78,26 +78,31 @@ public class DbSql {
 
     }*/
 
-    public void alleStuderende(){
+    public ArrayList<Studerende> alleStuderende(){
+        ArrayList<Studerende>studliste=new ArrayList<>();
         try {
             String sql = "select * from Studerende";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            System.out.println("Connection to SQLite has been established.");
+
+
             while (rs.next()) {
-                System.out.println(rs.getInt("stdnr"));
-                System.out.println(rs.getString("fnavn"));
-                System.out.println(rs.getString("enavn"));
-                System.out.println(rs.getString("adresse"));
-                System.out.println(rs.getString("postnr"));
-                System.out.println(rs.getString("mobil"));
-                System.out.println(rs.getString("klasse"));
+                Studerende s=new Studerende();
+                s.setStdnr(rs.getInt("stdnr"));
+                s.setFnavn(rs.getString("fnavn"));
+                s.setEnavn(rs.getString("enavn"));
+                s.setAdresse(rs.getString("adresse"));
+                s.setPostnr(rs.getString("postnr"));
+                s.setMobil(rs.getString("mobil"));
+                String k=rs.getString("klasse");
+                s.setKlasse(k.charAt(0));
+                studliste.add(s);
             }
             stmt.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
+        return studliste;
     }
     public void alleFag(){
         try {

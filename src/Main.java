@@ -24,7 +24,7 @@ public class Main {
         int valg=input.nextInt();
         switch(valg){
             case 1:
-                Studerende s= new Studerende(13,"Mikkel","Jensen","Holbækvej 13","2200","11223355",'a');
+                Studerende s= new Studerende(14,"Mikkel","Jensen","Holbækvej 13","2200","11223355",'a');
                 db.opretStuderende(s);
             break;
             case 2:
@@ -38,7 +38,9 @@ public class Main {
 
             break;
             case 5:
-                db.alleStuderende();
+                ArrayList<Studerende>studliste=db.alleStuderende();
+                udskrivAlleStuderende(studliste);
+                //db.alleStuderende();
             break;
             case 6:
                 db.alleFag();
@@ -49,19 +51,10 @@ public class Main {
 
             break;
         }
-
-
-
-
-
-
-
-
-
-
-
+    }
+    public static void udskrivAlleStuderende(ArrayList<Studerende>a){
+            System.out.println(a);
 
     }
-
 
 }
