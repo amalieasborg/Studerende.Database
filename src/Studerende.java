@@ -118,7 +118,12 @@ public class Studerende {
         return "Studerende{" +
                 "stdnr=" + stdnr +
                 ", fnavn='" + fnavn + '\'' +
-
+                ", enavn='" + enavn + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", postnr='" + postnr + '\'' +
+                ", mobil='" + mobil + '\'' +
+                ", klasse=" + klasse +
+                ", fagListe=" + fagListe +
                 '}';
     }
 }

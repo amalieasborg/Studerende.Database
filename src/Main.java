@@ -40,12 +40,15 @@ public class Main {
             case 5:
                 ArrayList<Studerende>studliste=db.alleStuderende();
                 udskrivAlleStuderende(studliste);
-                //db.alleStuderende();
             break;
             case 6:
-                db.alleFag();
+                ArrayList<Fag>fagliste=db.alleFag();
+                udskrivAlleFag(fagliste);
             break;
             case 7:
+                //System.out.println("Indtast studienummeret");
+                //studerende s =db.soegOplysningerStuderende
+
             break;
             case 8:
 
@@ -55,6 +58,9 @@ public class Main {
     public static void udskrivAlleStuderende(ArrayList<Studerende>a){
             System.out.println(a);
 
+    }
+    public static void udskrivAlleFag(ArrayList<Fag>a){
+        System.out.println(a);
     }
 
 }

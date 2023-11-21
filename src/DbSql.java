@@ -77,6 +77,17 @@ public class DbSql {
         }
 
     }*/
+    public void sletStud(Integer id) {
+        try {
+            String sql = "DELETE FROM Studfag WHERE id=" + String.valueOf(id);
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+            System.out.println("Connection to SQLite has been established.");
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
 
     public ArrayList<Studerende> alleStuderende(){
         ArrayList<Studerende>studliste=new ArrayList<>();
@@ -84,8 +95,6 @@ public class DbSql {
             String sql = "select * from Studerende";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-
-
             while (rs.next()) {
                 Studerende s=new Studerende();
                 s.setStdnr(rs.getInt("stdnr"));
@@ -104,21 +113,25 @@ public class DbSql {
         }
         return studliste;
     }
-    public void alleFag(){
+    public ArrayList<Fag> alleFag(){
+        ArrayList<Fag>fagliste=new ArrayList<>();
         try {
             String sql = "select * from Fag";
             Statement stmt = connection.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
-            System.out.println("Connection to SQLite has been established.");
             while (rs.next()) {
-                System.out.println(rs.getInt("fagNr"));
-                System.out.println(rs.getString("fagNavn"));
+                Fag f=new Fag();
+                f.setFagnr(rs.getInt("fagnr"));
+                f.setFagnavn(rs.getString("fagnavn"));
+                fagliste.add(f);
             }
             stmt.close();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+        return fagliste;
     }
+
 
 
 }
