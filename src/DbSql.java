@@ -77,9 +77,20 @@ public class DbSql {
         }
 
     }*/
-    public void sletStud(Integer id) {
+    public void sletStud(Integer stdnr) {
         try {
-            String sql = "DELETE FROM Studfag WHERE id=" + String.valueOf(id);
+            String sql = "DELETE FROM Studerende WHERE stdnr=" + String.valueOf(stdnr);
+            Statement stmt = connection.createStatement();
+            stmt.execute(sql);
+            System.out.println("Connection to SQLite has been established.");
+            stmt.close();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    public void sletStudereneFraFag(Integer stdnr, Integer fagNr) {
+        try {
+            String sql = "DELETE FROM Studfag WHERE stdnr=" + String.valueOf(stdnr)+"AND fagNr = "+String.valueOf(fagNr);
             Statement stmt = connection.createStatement();
             stmt.execute(sql);
             System.out.println("Connection to SQLite has been established.");
