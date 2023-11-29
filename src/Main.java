@@ -56,7 +56,7 @@ public class Main {
             break;
             case 9:
                 //db.sletStuderene();
-                db.sletStud(14);
+                db.sletStud();
             break;
         }
     }
