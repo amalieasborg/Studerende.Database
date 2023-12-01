@@ -61,22 +61,17 @@ public class DbSql {
             throwables.printStackTrace();
         }
     }
-    /*public void frameldStuderendeFraFag(){
+    public void frameldStuderendeFraFag(Integer id){
         try {
-            String sql = "insert into Studfag(stdnr,fagNr,kar)values(";
-            sql+=String.valueOf(stdnr)+","+String.valueOf(fagNr)+","+String.valueOf(kar)+")";
+            String sql = "DELETE FROM Studfag WHERE id=" + String.valueOf(id);
             Statement stmt = connection.createStatement();
             stmt.execute(sql);
             System.out.println("Connection to SQLite has been established.");
-
             stmt.close();
-
-
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-
-    }*/
+    }
     public void sletStud(Integer stdnr) {
         try {
             String sql = "DELETE FROM Studerende WHERE stdnr=" + String.valueOf(stdnr);
@@ -141,6 +136,19 @@ public class DbSql {
             throwables.printStackTrace();
         }
         return fagliste;
+    }
+    public Studerende soegOplysningerStuderende(Integer stdnr){
+        Studerende s1=new Studerende();
+        try {
+        String sql = "select * from Studerende where stdnr ="+ String.valueOf(stdnr);
+        Statement stmt = connection.createStatement();
+        stmt.execute(sql);
+        System.out.println("Connection to SQLite has been established.");
+        stmt.close();
+    } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return s1;
     }
 
 

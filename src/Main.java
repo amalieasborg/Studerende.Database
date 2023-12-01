@@ -33,10 +33,10 @@ public class Main {
                 db.opretFag(f1);
             break;
             case 3:
-                db.tilmeldStuderendeTilFag(5,4,12);
+                db.tilmeldStuderendeTilFag(6,3,10);
             break;
             case 4:
-
+                db.frameldStuderendeFraFag(15);
             break;
             case 5:
                 ArrayList<Studerende>studliste=db.alleStuderende();
@@ -47,8 +47,9 @@ public class Main {
                 udskrivAlleFag(fagliste);
             break;
             case 7:
-                //System.out.println("Indtast studienummeret");
-                //studerende s =db.soegOplysningerStuderende
+                Studerende s1 = db.soegOplysningerStuderende(3);
+                udskrivOplysningerStuderende(s1);
+
 
             break;
             case 8:
@@ -56,7 +57,7 @@ public class Main {
             break;
             case 9:
                 //db.sletStuderene();
-                db.sletStud();
+                //db.sletStud();
             break;
         }
     }
@@ -66,6 +67,9 @@ public class Main {
     }
     public static void udskrivAlleFag(ArrayList<Fag>a){
         System.out.println(a);
+    }
+    public static void udskrivOplysningerStuderende(Studerende s){
+        System.out.println(s);
     }
 
 }
